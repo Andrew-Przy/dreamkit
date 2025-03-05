@@ -28,6 +28,5 @@ setup(
     url="https://github.com/Andrew-Przy/dreamkit",
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: MIT License",
     ],
 )

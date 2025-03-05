@@ -1,0 +1,21 @@
+services:
+  python_app:
+    build: .
+    container_name: python311_container
+    working_dir: /app
+    volumes:
+      - .:/app
+    restart: always
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    ports:
+      - "6006:6006"
+    command: tensorboard --logdir=./log --host=0.0.0.0
